@@ -1,18 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./page.module.css";
-import Header from "./components/Header/Header";
-import SideBarMenu from "./components/SideBarMenu/SideBarMenu";
 
 export default function Home() {
   return (
     <div>
-      <Header />
-
       <div className={styles.bodyContainer}>
-        <SideBarMenu />
-
         <div className={styles.bodyContent}>
           psum lacus. Proin nec diam ut velit pellentesque rutrum ut non massa.
           Maecenas molestie diam erat, et consequat velit vulputate eget.

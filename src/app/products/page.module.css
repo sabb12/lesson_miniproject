@@ -1,0 +1,28 @@
+.bodyContainer {
+  border: 1px solid black;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 200px 1fr;
+}
+
+.bodyContent {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.listHeader {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header,
+.item {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 70px 149px auto 85px 100px 100px;
+  text-align: center;
+}

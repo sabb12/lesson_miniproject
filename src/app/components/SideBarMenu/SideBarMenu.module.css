@@ -1,0 +1,26 @@
+.dropdown {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.dropdown .dropdown_btn {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.dropdown .dropdown_content {
+  padding: 10px;
+  font-weight: 500;
+  width: 120px;
+}
+
+.dropdown .dropdown_content .dropdown_item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+}

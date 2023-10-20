@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./page.module.css";
-import Header from "./components/Header/Header";
-import SideBarMenu from "./components/SideBarMenu/SideBarMenu";
+import styles from "../page.module.css";
+import Header from "../components/Header/Header";
+import SideBarMenu from "../components/SideBarMenu/SideBarMenu";
 
 export default function Home() {
   return (
     <div>
       <Header />
-
+      fff
       <div className={styles.bodyContainer}>
         <SideBarMenu />
 

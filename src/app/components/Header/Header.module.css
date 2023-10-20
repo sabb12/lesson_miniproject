@@ -1,0 +1,11 @@
+.headerContainer {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr;
+  padding: 20px;
+  align-items: center;
+  border: 1px solid black;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
