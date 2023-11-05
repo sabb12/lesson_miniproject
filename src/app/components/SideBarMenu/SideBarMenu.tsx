@@ -3,21 +3,16 @@
 import { usePathname } from "next/navigation";
 import styles from "./SideBarMenu.module.css";
 import { useState } from "react";
-import path from "path";
-import Link from "next/link";
 
-const pageObject = {
-  상품등록: "pages/create/page",
-  상품목록: "pages/update/page",
-};
 export default function SideBarMenu() {
   const [isActive, setIsActive] = useState(false);
-  const [isMenuChecked, setIsMenuChecked] = useState(false);
+
   const pathname = usePathname();
-  console.log(pathname);
-  // const [selected, setSelected] = useState(["상품등록", "상품목록"]);
-  const [selected, setSelected] = useState(0);
-  const subNavList = ["상품등록", "상품목록"];
+
+  const subNavList = [
+    { list: "상품등록", path: "/products/create" },
+    { list: "상품목록", path: "/products" },
+  ];
   return (
     <div className={styles.dropdown}>
       <div
@@ -32,17 +27,18 @@ export default function SideBarMenu() {
         <div className={styles.dropdown_content}>
           {subNavList.map((item, i) => {
             return (
-              <Link
+              <div
                 key={i}
-                href={pageObject[item]}
                 className={styles.dropdown_item}
                 onClick={() => {
-                  setSelected(i);
+                  window.location.href = item.path;
                 }}
-                style={{ color: selected === i ? "#66d3fa" : "#000000" }}
+                style={{
+                  color: item.path === pathname ? "#66d3fa" : "#000000",
+                }}
               >
-                {item}
-              </Link>
+                {item.list}
+              </div>
             );
           })}
         </div>
@@ -50,7 +46,10 @@ export default function SideBarMenu() {
       <div
         className={styles.dropdown_btn}
         onClick={(e) => {
-          setIsActive(!isActive);
+          window.location.href = "/products/productManage";
+        }}
+        style={{
+          color: pathname === "/products/productManage" ? "#66d3fa" : "#000000",
         }}
       >
         카테고리관리

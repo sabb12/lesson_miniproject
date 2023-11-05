@@ -3,9 +3,9 @@ export type ProductResponse = {
   id: number;
   name: string;
   imageUrlList: string[];
-  category1: number;
-  category2: number;
-  category3: number;
+  category1Id: number;
+  category2Id: number;
+  category3Id: number;
   price: number;
   status: "READY" | "ON_SALE" | "END_SALE";
   createdAt: Date;

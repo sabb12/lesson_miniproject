@@ -15,7 +15,6 @@ export const mapResponse = (item: ProductResponse): Product => {
     ...item,
   };
 };
-
 // getList의 type은 Promise이고 resovle되는 type은 Product[]다
 export function getList(): Promise<Product[]> {
   const query = supabase.from(SCHEMA_NAME).select();
@@ -25,13 +24,13 @@ export function getList(): Promise<Product[]> {
         resolve([]);
         return;
       }
-
       resolve(data);
     });
   });
 }
 
 export function getById(id: number): Promise<Product[]> {
+  console.log("id :", id);
   return new Promise(function (resolve) {
     const query = supabase
       .from(SCHEMA_NAME)
@@ -39,6 +38,7 @@ export function getById(id: number): Promise<Product[]> {
       .eq("id", id)
       .returns<ProductResponse[]>();
     query.returns<ProductResponse[]>().then(function ({ data }) {
+      console.log("data :", data);
       if (!data) {
         resolve([]);
         return;
@@ -51,6 +51,7 @@ export function getById(id: number): Promise<Product[]> {
 
 export function create(product: NewProductParam): Promise<void> {
   return new Promise(function (resolve) {
+    console.log(product, "hello");
     supabase
       .from(SCHEMA_NAME)
       .insert(product)

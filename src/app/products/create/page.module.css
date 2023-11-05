@@ -1,0 +1,72 @@
+.bodyContainer {
+  border: 1px solid black;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 200px 1fr;
+}
+
+.bodyContent {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.updateFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.idContainer,
+.nameContainer,
+.imageContainer,
+.categoryContainer,
+.priceContainer,
+.statusContainer {
+  display: grid;
+  max-width: 510px;
+  grid-auto-flow: column;
+  grid-template-columns: 100px 400px;
+  gap: 10px;
+}
+
+.createdUpdatedDateContainer {
+  display: flex;
+}
+
+.createdContainer,
+.updatedDateContainer {
+  display: grid;
+  width: 50%;
+  grid-auto-flow: column;
+  grid-template-columns: 100px 1fr;
+  gap: 10px;
+}
+
+.categoryContainer {
+  grid-template-columns: 100px 1fr 10px 1fr 10px 1fr;
+}
+
+.eventListenerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header {
+  background: #eeeeee;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.statusRadioGroup {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.imageList {
+  display: flex;
+}

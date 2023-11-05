@@ -1,0 +1,20 @@
+.bodyContainer {
+  border: 1px solid black;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 200px 1fr;
+}
+
+.bodyContent {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  padding: px;
+  gap: 10px;
+}
+
+.depthContainer {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 1fr;
+}

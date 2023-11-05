@@ -2,15 +2,16 @@ import styles from "./Header.module.css";
 
 type Props = {
   onClick?: () => void;
+  logImage: string;
 };
 
 export default function HeaderForm(props: Props) {
-  const { onClick } = props;
+  const { logImage, onClick } = props;
 
   return (
     <div className={styles.headerContainer}>
       <div>
-        <img src="./images/handDrip.png" alt="" width={100} height={100} />
+        <img src={logImage} alt="" width={100} height={100} />
       </div>
       <div>
         <button onClick={onClick}>로그인</button>

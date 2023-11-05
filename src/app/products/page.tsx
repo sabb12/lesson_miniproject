@@ -1,12 +1,14 @@
 "use client";
 
 import styles from "./page.module.css";
+import Link from "next/link";
 
-import Header from "../components/Header/Header";
-import SideBarMenu from "../components/SideBarMenu/SideBarMenu";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { Product } from "@/repositories/products/types";
 import * as ProductsRepository from "@/repositories/products/ProductsRepository";
+import Header from "@/components/Header/Header";
+import SideBarMenu from "@/components/SideBarMenu/SideBarMenu";
+import dayjs from "dayjs";
 
 export default function ProductListPage() {
   const [itemList, setItemList] = useState<Product[]>([]);
@@ -21,7 +23,7 @@ export default function ProductListPage() {
 
   return (
     <div>
-      <Header />
+      <Header logImage={"/images/handDrip.png"} />
       <div className={styles.bodyContainer}>
         <SideBarMenu />
 
@@ -29,7 +31,13 @@ export default function ProductListPage() {
           <div className={styles.title}>상품목록</div>
           <div className={styles.listHeader}>
             <div className={styles.totalCount}>0</div>
-            <button>등록</button>
+            <button
+              onClick={function () {
+                window.location.href = "/products/create";
+              }}
+            >
+              등록
+            </button>
           </div>
           <div className={styles.productList}>
             <div className={styles.header}>
@@ -42,13 +50,20 @@ export default function ProductListPage() {
             </div>
             {itemList.map(function (product, i) {
               return (
-                <div key={i} className={styles.item}>
-                  <div>1</div>
-                  <div>123123123</div>
-                  <div>상품12</div>
-                  <div>판매중</div>
-                  <div>2023.09.02 02:23:23</div>
-                  <div>3030.09.02 02:23:23</div>
+                <div key={product.id} className={styles.item}>
+                  <div>{i + 1}</div>
+                  <div>{product.id}</div>
+                  <div
+                    onClick={function () {
+                      window.location.href = `/products/${product.id}`;
+                      // ProductsRepository.update(product.id)
+                    }}
+                  >
+                    {product.name}
+                  </div>
+                  <div>{product.status}</div>
+                  <div>{dayjs(product.createdAt).format("YYYY/MM/DD")}</div>
+                  <div>{dayjs(product.updatedAt).format("YYYY/MM/DD")}</div>
                 </div>
               );
             })}
